@@ -251,20 +251,6 @@ public class BoardPanel extends JPanel {
             // Draw piece
             g2d.setColor(piece.getColor() == com.chess.model.Color.WHITE ? java.awt.Color.WHITE : java.awt.Color.BLACK);
             g2d.drawString(symbol, textX, textY);
-            
-            // Draw outline for white pieces
-            if (piece.getColor() == com.chess.model.Color.WHITE) {
-                g2d.setColor(java.awt.Color.BLACK);
-                g2d.setFont(new Font("Serif", Font.PLAIN, 60));
-                // Draw outline by drawing the character multiple times with small offsets
-                for (int dx = -1; dx <= 1; dx++) {
-                    for (int dy = -1; dy <= 1; dy++) {
-                        if (dx != 0 || dy != 0) {
-                            // Skip, we'll use stroke instead
-                        }
-                    }
-                }
-            }
         }
     }
 

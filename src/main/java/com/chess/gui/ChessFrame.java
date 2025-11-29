@@ -14,7 +14,7 @@ public class ChessFrame extends JFrame implements BoardPanel.GameStatusListener 
     private final Game game;
     private final BoardPanel boardPanel;
     private final JLabel statusLabel;
-    private final JTextArea moveHistoryArea;
+    private JTextArea moveHistoryArea;
 
     public ChessFrame() {
         super("Scacchi Java - Chess");
@@ -49,11 +49,6 @@ public class ChessFrame extends JFrame implements BoardPanel.GameStatusListener 
 
         pack();
         setLocationRelativeTo(null);
-        
-        // Create move history area
-        moveHistoryArea = new JTextArea(20, 15);
-        moveHistoryArea.setEditable(false);
-        moveHistoryArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
     }
 
     private JMenuBar createMenuBar() {
@@ -104,10 +99,10 @@ public class ChessFrame extends JFrame implements BoardPanel.GameStatusListener 
         panel.add(Box.createRigidArea(new Dimension(0, 10)));
 
         // Move history area
-        JTextArea historyArea = new JTextArea();
-        historyArea.setEditable(false);
-        historyArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
-        JScrollPane scrollPane = new JScrollPane(historyArea);
+        moveHistoryArea = new JTextArea();
+        moveHistoryArea.setEditable(false);
+        moveHistoryArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        JScrollPane scrollPane = new JScrollPane(moveHistoryArea);
         scrollPane.setPreferredSize(new Dimension(180, 400));
         panel.add(scrollPane);
 
